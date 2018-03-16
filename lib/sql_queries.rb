@@ -44,7 +44,7 @@ From Projects
 LEFT OUTER JOIN Pledges
 ON Projects.id = Pledges.project_id
 WHERE Projects.category = 'music'
-SORT BY Pledges.id ASC"
+ORDER BY Pledges.id ASC"
 end
 
 def selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_books_category
