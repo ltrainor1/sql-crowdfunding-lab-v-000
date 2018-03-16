@@ -21,15 +21,12 @@ ON Users.id = Pledges.user_id GROUP BY Users.name ORDER BY Users.name ASC"
 end
 
 def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_funding_goal
-  "DECLARE @v1 REAL
-  SET @v1 += SUM(Pledges.amount) - Projects.funding_goal
-  SELECT Projects.title, @v1
-
+  "SELECT Projects.title, SUM(Pledges.amount) - Projects.funding_goal
   FROM Projects
   LEFT OUTER JOIN Pledges
   ON Projects.id = Pledges.project_id
   GROUP BY Projects.title
-  WHERE @v1 > 0"
+  WHERE SUM(Pledges.amount) > Projects.funding_goal"
 end
 
 def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_amount_and_users_name
