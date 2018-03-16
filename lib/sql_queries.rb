@@ -25,7 +25,7 @@ def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_
   FROM Projects
   LEFT OUTER JOIN Pledges
   ON Projects.id = Pledges.project_id
-  SELECT CASE WHEN Projects.funding_goal < SUM(Pledges.amount)
+
   GROUP BY Projects.title"
 end
 
