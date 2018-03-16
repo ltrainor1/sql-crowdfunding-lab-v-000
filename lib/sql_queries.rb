@@ -10,7 +10,7 @@ def selects_the_titles_of_all_projects_and_their_pledge_amounts_alphabetized_by_
 "SELECT Projects.title, SUM(Pledges.amount)
 FROM Projects
 LEFT OUTER JOIN Pledges
-ON Projects.id = Pledges.project_id GROUP BY Projects.title;"
+ON Projects.id = Pledges.project_id GROUP BY Projects.title"
 end
 
 def selects_the_user_name_age_and_pledge_amount_for_all_pledges_alphabetized_by_name
