@@ -34,6 +34,7 @@ def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_th
   FROM Users
   LEFT OUTER JOIN Pledges
   ON Users.id = Pledges.user_id
+  GROUP BY Users.id
   ORDER BY SUM(Pledges.amount) ASC"
 end
 
